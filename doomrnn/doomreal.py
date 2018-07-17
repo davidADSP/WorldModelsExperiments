@@ -58,7 +58,7 @@ class DoomTakeCoverWrapper(DoomTakeCoverEnv):
 
     self.zero_state = self.rnn.sess.run(self.rnn.zero_state)
 
-    print('here after')
+
 
     self._seed()
 
@@ -67,6 +67,8 @@ class DoomTakeCoverWrapper(DoomTakeCoverEnv):
     self.restart = None
     self.frame_count = None
     self.viewer = None
+
+    print('here after')
     
     self._reset()
 
