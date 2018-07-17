@@ -291,7 +291,9 @@ def master():
   filename_hist_best = filebase+'.hist_best.json'
   filename_best = filebase+'.best.json'
 
-  model.make_env()
+  myLock = Lock()
+
+  model.make_env(lock = myLock)
 
   t = 0
 

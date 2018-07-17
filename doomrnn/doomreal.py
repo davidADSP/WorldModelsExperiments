@@ -70,7 +70,7 @@ class DoomTakeCoverWrapper(DoomTakeCoverEnv):
 
 
     
-    self._reset()
+    # self._reset()
 
 
 
