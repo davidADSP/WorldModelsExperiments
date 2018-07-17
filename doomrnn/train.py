@@ -37,7 +37,7 @@ num_worker_trial = 1
 
 population = num_worker * num_worker_trial
 
-gamename = 'doomreal'
+gamename = 'robo_ant'
 optimizer = 'pepg'
 antithetic = True
 batch_mode = 'mean'

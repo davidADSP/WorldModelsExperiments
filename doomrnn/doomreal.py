@@ -169,7 +169,6 @@ class DoomTakeCoverWrapper(DoomTakeCoverEnv):
           self.viewer = rendering.SimpleImageViewer()
         self.viewer.imshow(img)
     except doom_py.vizdoom.ViZDoomIsNotRunningException:
-      print('ERROR')
       pass  # Doom has been closed
 
 def make_env(env_name="doom", seed=-1, render_mode=False):
