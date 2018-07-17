@@ -23,6 +23,7 @@ from model import make_model, simulate
 from es import CMAES, SimpleGA, OpenES, PEPG
 import argparse
 import time
+from multiprocessing import Lock
 
 # os.environ["CUDA_VISIBLE_DEVICES"]="-1" # disable GPU
 
