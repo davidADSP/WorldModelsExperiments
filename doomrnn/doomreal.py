@@ -12,7 +12,6 @@ from ppaquette_gym_doom.doom_take_cover import DoomTakeCoverEnv
 
 from doomrnn import reset_graph, model_path_name, model_rnn_size, model_state_space, ConvVAE, Model, hps_sample
 
-from gym.envs.classic_control import rendering
 
 import os
 import sys
@@ -151,34 +150,34 @@ class DoomTakeCoverWrapper(DoomTakeCoverEnv):
     self.np_random, seed = seeding.np_random(seed)
     return [seed]
 
-  def _render(self, mode='human', close=False):
-    if close:
-      if self.viewer is not None:
-          self.viewer.close()
-          self.viewer = None      # If we don't None out this reference pyglet becomes unhappy
-      return
-    try:
-      state = self.game.get_state()
-      img = state.image_buffer
-      small_img = self.current_obs
-      if img is None:
-        img = np.zeros(shape=(480, 640, 3), dtype=np.uint8)
-      if small_img is None:
-        small_img = np.zeros(shape=(SCREEN_Y, SCREEN_X, 3), dtype=np.uint8)
-      small_img = resize(small_img, (img.shape[0], img.shape[0]))
-      vae_img = self._decode(self.z)
-      vae_img = resize(vae_img, (img.shape[0], img.shape[0]))
-      all_img = np.concatenate((img, small_img, vae_img), axis=1)
-      img = all_img
-      if mode == 'rgb_array':
-        return img
-      elif mode is 'human':
-        
-        if self.viewer is None:
-          self.viewer = rendering.SimpleImageViewer()
-        self.viewer.imshow(img)
-    except doom_py.vizdoom.ViZDoomIsNotRunningException:
-      pass  # Doom has been closed
+  # def _render(self, mode='human', close=False):
+  #   if close:
+  #     if self.viewer is not None:
+  #         self.viewer.close()
+  #         self.viewer = None      # If we don't None out this reference pyglet becomes unhappy
+  #     return
+  #   try:
+  #     state = self.game.get_state()
+  #     img = state.image_buffer
+  #     small_img = self.current_obs
+  #     if img is None:
+  #       img = np.zeros(shape=(480, 640, 3), dtype=np.uint8)
+  #     if small_img is None:
+  #       small_img = np.zeros(shape=(SCREEN_Y, SCREEN_X, 3), dtype=np.uint8)
+  #     small_img = resize(small_img, (img.shape[0], img.shape[0]))
+  #     vae_img = self._decode(self.z)
+  #     vae_img = resize(vae_img, (img.shape[0], img.shape[0]))
+  #     all_img = np.concatenate((img, small_img, vae_img), axis=1)
+  #     img = all_img
+  #     if mode == 'rgb_array':
+  #       return img
+  #     elif mode is 'human':
+  #       from gym.envs.classic_control import rendering
+  #       if self.viewer is None:
+  #         self.viewer = rendering.SimpleImageViewer()
+  #       self.viewer.imshow(img)
+  #   except doom_py.vizdoom.ViZDoomIsNotRunningException:
+  #     pass  # Doom has been closed
 
 def make_env(env_name="doom", seed=-1, render_mode=False):
   env = DoomTakeCoverWrapper(render_mode=render_mode)
