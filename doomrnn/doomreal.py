@@ -32,8 +32,9 @@ class DoomTakeCoverWrapper(DoomTakeCoverEnv):
     if render_mode:
       self.no_render = False
     self.current_obs = None
-
+    print('here before')
     reset_graph()
+    print('here after')
 
     self.vae = ConvVAE(batch_size=1, gpu_mode=False, is_training=False, reuse=True)
 
