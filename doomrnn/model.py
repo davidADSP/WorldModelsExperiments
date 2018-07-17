@@ -61,7 +61,7 @@ class Model:
 
     self.render_mode = False
 
-  def make_env(self, seed=-1, render_mode=False, load_model=True, lock = lock):
+  def make_env(self, seed=-1, render_mode=False, load_model=True, lock = None):
     self.render_mode = render_mode
     self.env = make_env(self.env_name, seed=seed, render_mode=render_mode, load_model=load_model, lock = lock)
 
