@@ -24,6 +24,7 @@ from es import CMAES, SimpleGA, OpenES, PEPG
 import argparse
 import time
 from multiprocessing import Lock
+from doomreal import DoomTakeCoverWrapper
 
 # os.environ["CUDA_VISIBLE_DEVICES"]="-1" # disable GPU
 
@@ -403,6 +404,9 @@ def main(args):
   seed_start = args.seed_start
 
   initialize_settings(args.sigma_init, args.sigma_decay)
+
+  env = DoomTakeCoverWrapper()
+  env.close()
 
   sprint("process", rank, "out of total ", comm.Get_size(), "started")
   if (rank == 0):
