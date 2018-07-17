@@ -12,6 +12,8 @@ from ppaquette_gym_doom.doom_take_cover import DoomTakeCoverEnv
 
 from doomrnn import reset_graph, model_path_name, model_rnn_size, model_state_space, ConvVAE, Model, hps_sample
 
+from gym.envs.classic_control import rendering
+
 import os
 import sys
 
@@ -26,6 +28,7 @@ def _process_frame(frame):
 
 class DoomTakeCoverWrapper(DoomTakeCoverEnv):
   def __init__(self, render_mode=False, load_model=True):
+    print('here before')
     super(DoomTakeCoverWrapper, self).__init__()
 
     self.no_render = True
@@ -63,7 +66,9 @@ class DoomTakeCoverWrapper(DoomTakeCoverEnv):
     self.viewer = None
     
     self._reset()
-    
+
+    print('here after')
+
 
   def _step(self, action):
 
@@ -168,7 +173,7 @@ class DoomTakeCoverWrapper(DoomTakeCoverEnv):
       if mode == 'rgb_array':
         return img
       elif mode is 'human':
-        from gym.envs.classic_control import rendering
+        
         if self.viewer is None:
           self.viewer = rendering.SimpleImageViewer()
         self.viewer.imshow(img)
