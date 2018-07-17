@@ -24,7 +24,7 @@ from es import CMAES, SimpleGA, OpenES, PEPG
 import argparse
 import time
 
-os.environ["CUDA_VISIBLE_DEVICES"]="-1" # disable GPU
+# os.environ["CUDA_VISIBLE_DEVICES"]="-1" # disable GPU
 
 ### ES related code
 num_episode = 1
