@@ -3,6 +3,8 @@ import gym
 from doomreal import DoomTakeCoverWrapper
 from doomrnn import DoomCoverRNNEnv
 
+env = gym.make('DoomTakeCover-v0'); env.close()
+
 def make_env(env_name, seed=-1, render_mode=False, load_model=True):
   if env_name == 'doomrnn':
     print('making rnn doom environment')
