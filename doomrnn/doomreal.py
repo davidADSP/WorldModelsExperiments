@@ -47,7 +47,7 @@ class DoomTakeCoverWrapper(DoomTakeCoverEnv):
       self.vae.load_json(os.path.join(model_path_name, 'vae.json'))
       self.rnn.load_json(os.path.join(model_path_name, 'rnn.json'))
 
-    print('here after')
+
 
     self.action_space = spaces.Box(low=-1.0, high=1.0, shape=())
     self.outwidth = self.rnn.hps.seq_width
@@ -57,6 +57,8 @@ class DoomTakeCoverWrapper(DoomTakeCoverEnv):
     self.actual_observation_space = spaces.Box(low=-50., high=50., shape=(self.obs_size))
 
     self.zero_state = self.rnn.sess.run(self.rnn.zero_state)
+
+    print('here after')
 
     self._seed()
 
