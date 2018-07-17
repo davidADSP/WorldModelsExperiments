@@ -32,13 +32,14 @@ class DoomTakeCoverWrapper(DoomTakeCoverEnv):
     if render_mode:
       self.no_render = False
     self.current_obs = None
-    print('here before')
+    
     reset_graph()
-    print('here after')
+    
 
     self.vae = ConvVAE(batch_size=1, gpu_mode=False, is_training=False, reuse=True)
-
+    print('here before')
     self.rnn = Model(hps_sample, gpu_mode=False)
+    print('here after')
 
     if load_model:
       self.vae.load_json(os.path.join(model_path_name, 'vae.json'))
