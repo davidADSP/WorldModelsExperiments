@@ -206,9 +206,7 @@ def worker(weights, seed, train_mode_int=1, max_len=-1):
   return reward, t
 
 def slave():
-  print('here before')
   model.make_env()
-  print('here after')
   packet = np.empty(SOLUTION_PACKET_SIZE, dtype=np.int32)
   while 1:
     comm.Recv(packet, source=0)
