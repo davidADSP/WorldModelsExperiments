@@ -27,7 +27,7 @@ def _process_frame(frame):
 
 class DoomTakeCoverWrapper(DoomTakeCoverEnv):
   def __init__(self, render_mode=False, load_model=True):
-    print('here before')
+    
     super(DoomTakeCoverWrapper, self).__init__()
 
     self.no_render = True
@@ -68,7 +68,7 @@ class DoomTakeCoverWrapper(DoomTakeCoverEnv):
     self.frame_count = None
     self.viewer = None
 
-    
+    print('here before')
     
     self._reset()
 
