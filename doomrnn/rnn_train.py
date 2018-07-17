@@ -123,7 +123,7 @@ N_z = hps_model.seq_width
 # save 1000 initial mu and logvars:
 initial_mu = []
 initial_logvar = []
-for i in range(1000):
+for i in range(258):
   mu = np.copy(raw_data_mu[i][0, :]*10000).astype(np.int).tolist()
   logvar = np.copy(raw_data_logvar[i][0, :]*10000).astype(np.int).tolist()
   initial_mu.append(mu)
