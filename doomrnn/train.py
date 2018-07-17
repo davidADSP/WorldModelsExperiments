@@ -37,7 +37,7 @@ num_worker_trial = 1
 
 population = num_worker * num_worker_trial
 
-gamename = 'robo_ant'
+gamename = 'doomreal'
 optimizer = 'pepg'
 antithetic = True
 batch_mode = 'mean'
@@ -207,6 +207,7 @@ def worker(weights, seed, train_mode_int=1, max_len=-1):
 
 def slave():
   model.make_env()
+  print('here')
   packet = np.empty(SOLUTION_PACKET_SIZE, dtype=np.int32)
   while 1:
     comm.Recv(packet, source=0)
