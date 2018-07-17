@@ -169,6 +169,8 @@ for epoch in range(1, 401):
       output_log = "step: %d, lr: %.6f, cost: %.4f, z_cost: %.4f, r_cost: %.4f, train_time_taken: %.4f" % (step, curr_learning_rate, train_cost, z_cost, r_cost, time_taken)
       print(output_log)
 
+      model.save_json(os.path.join(model_save_path, "rnn.json"))
+
 # save the model (don't bother with tf checkpoints json all the way ...)
 model.save_json(os.path.join(model_save_path, "rnn.json"))
 
