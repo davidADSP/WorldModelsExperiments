@@ -162,7 +162,7 @@ for epoch in range(1, 401):
             model.lr: curr_learning_rate}
 
     (train_cost, z_cost, r_cost, batch_state, train_step, _) = model.sess.run([model.cost, model.z_cost, model.r_cost, model.final_state, model.global_step, model.train_op], feed)
-    if (step%20==0 and step > 0):
+    if (step%1==0 and step > 0):
       end = time.time()
       time_taken = end-start
       start = time.time()
