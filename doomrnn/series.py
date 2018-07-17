@@ -89,7 +89,7 @@ for i in range(len(dataset)):
   logvar_data = np.array(logvar_data, dtype=np.float16)
   mu_dataset.append(mu_data)
   logvar_dataset.append(logvar_data)
-  if (i+1) % 100 == 0:
+  if (i+1) % 10 == 0:
     print(i+1)
 
 dataset = np.array(dataset)
