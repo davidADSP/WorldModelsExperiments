@@ -1,4 +1,4 @@
-for i in `seq 1 64`;
+for i in `seq 1 8`;
 do
   echo worker $i
   python extract.py &
