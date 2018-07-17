@@ -68,11 +68,11 @@ class DoomTakeCoverWrapper(DoomTakeCoverEnv):
     self.frame_count = None
     self.viewer = None
 
-    print('here after')
+    
     
     self._reset()
 
-    
+    print('here after')
 
 
   def _step(self, action):
