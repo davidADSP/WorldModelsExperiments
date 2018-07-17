@@ -136,7 +136,7 @@ class DoomTakeCoverWrapper(DoomTakeCoverEnv):
 
   def _reset(self):
     print('here before')
-    obs = super(DoomTakeCoverWrapper, self)._reset()
+    obs = super(DoomTakeCoverWrapper, self).reset()
     print('here after')
     small_obs = _process_frame(obs)
     self.current_obs = small_obs
