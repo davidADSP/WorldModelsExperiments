@@ -68,11 +68,10 @@ class DoomTakeCoverWrapper(DoomTakeCoverEnv):
     self.frame_count = None
     self.viewer = None
 
-    print('here before')
+
     
     self._reset()
 
-    print('here after')
 
 
   def _step(self, action):
@@ -136,7 +135,9 @@ class DoomTakeCoverWrapper(DoomTakeCoverEnv):
     return img
 
   def _reset(self):
+    print('here before')
     obs = super(DoomTakeCoverWrapper, self)._reset()
+    print('here after')
     small_obs = _process_frame(obs)
     self.current_obs = small_obs
     self.rnn_state = self.zero_state
