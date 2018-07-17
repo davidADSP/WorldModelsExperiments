@@ -153,6 +153,8 @@ class Model:
 
 def simulate(model, train_mode=False, render_mode=True, num_episode=5, seed=-1, max_len=-1):
 
+
+  print('SIMULATE')
   reward_list = []
   t_list = []
 
