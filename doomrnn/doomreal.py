@@ -42,10 +42,12 @@ class DoomTakeCoverWrapper(DoomTakeCoverEnv):
     
     self.rnn = Model(hps_sample, gpu_mode=False)
     
-    print('here after')
+
     if load_model:
       self.vae.load_json(os.path.join(model_path_name, 'vae.json'))
       self.rnn.load_json(os.path.join(model_path_name, 'rnn.json'))
+
+    print('here after')
 
     self.action_space = spaces.Box(low=-1.0, high=1.0, shape=())
     self.outwidth = self.rnn.hps.seq_width
