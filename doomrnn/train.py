@@ -293,7 +293,7 @@ def master():
 
   myLock = Lock()
 
-  model.make_env(lock = myLock)
+  model.make_env() #lock = myLock
 
   t = 0
 
