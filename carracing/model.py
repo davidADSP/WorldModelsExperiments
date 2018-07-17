@@ -186,6 +186,8 @@ def simulate(model, train_mode=False, render_mode=True, num_episode=5, seed=-1, 
 
     for t in range(max_episode_length):
 
+      print(t)
+
       if render_mode:
         model.env.render("human")
       else:
