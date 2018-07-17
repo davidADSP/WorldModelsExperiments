@@ -106,9 +106,9 @@ for epoch in range(NUM_EPOCH):
       vae.loss, vae.r_loss, vae.kl_loss, vae.global_step, vae.train_op
     ], feed)
   
-    if ((train_step+1) % 500 == 0):
+    if ((train_step+1) % 10 == 0):
       print("step", (train_step+1), train_loss, r_loss, kl_loss)
-    if ((train_step+1) % 5000 == 0):
+    if ((train_step+1) % 100 == 0):
       vae.save_json("tf_vae/vae.json")
 
 # finished, final model:
