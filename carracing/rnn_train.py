@@ -60,11 +60,15 @@ hps_sample = hps_model._replace(batch_size=1, max_seq_len=1, use_recurrent_dropo
 
 raw_data = np.load(os.path.join(DATA_DIR, "series.npz"))
 
+
+
 # load preprocessed data
 data_mu = raw_data["mu"]
 data_logvar = raw_data["logvar"]
 data_action =  raw_data["action"]
 max_seq_len = hps_model.max_seq_len
+
+
 
 N_data = len(data_mu) # should be 10k
 batch_size = hps_model.batch_size
