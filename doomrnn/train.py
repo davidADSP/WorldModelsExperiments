@@ -405,10 +405,11 @@ def main(args):
 
   initialize_settings(args.sigma_init, args.sigma_decay)
 
-  env = DoomTakeCoverWrapper()
-  env.close()
+  # env = DoomTakeCoverWrapper()
+  # env.close()
 
   sprint("process", rank, "out of total ", comm.Get_size(), "started")
+  time.sleep(5)
   if (rank == 0):
     master()
   else:
