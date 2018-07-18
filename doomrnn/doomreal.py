@@ -134,17 +134,17 @@ class DoomTakeCoverWrapper(DoomTakeCoverEnv):
     img = img.reshape(64, 64, 3)
     return img
 
-  def _reset(self):
-    # print('here before')
-    obs = super(DoomTakeCoverWrapper, self)._reset()
-    # print('here after')
-    small_obs = _process_frame(obs)
-    self.current_obs = small_obs
-    self.rnn_state = self.zero_state
-    self.z = self._encode(small_obs)
-    self.restart = 1
-    self.frame_count = 0
-    return self._current_state()
+  # def _reset(self):
+  #   print('here before')
+  #   obs = super(DoomTakeCoverWrapper, self)._reset()
+  #   print('here after')
+  #   small_obs = _process_frame(obs)
+  #   self.current_obs = small_obs
+  #   self.rnn_state = self.zero_state
+  #   self.z = self._encode(small_obs)
+  #   self.restart = 1
+  #   self.frame_count = 0
+  #   return self._current_state()
 
   def _current_state(self):
     if model_state_space == 2:
